@@ -17,6 +17,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY nhc_property_tax_server.py .
+COPY swagger_docs.py .
+COPY docs_server.py .
 
 # Create data directory
 RUN mkdir -p /app/data

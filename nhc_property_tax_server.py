@@ -14,6 +14,7 @@ Improvements in v2.0:
 - Thread-safe concurrent request handling
 - Unicode/encoding support
 - Payload size guards for large result sets
+- Interactive Swagger API documentation
 """
 
 from __future__ import annotations
@@ -746,6 +747,11 @@ def clear_cache(
             "error": str(e),
             "cache_type": cache_type
         }
+
+# Note: API documentation is served by the separate docs_server.py
+# Run both servers together using docker-compose or:
+# Terminal 1: python nhc_property_tax_server.py
+# Terminal 2: python docs_server.py
 
 if __name__ == "__main__":
     host = "0.0.0.0"

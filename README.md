@@ -1,6 +1,6 @@
 # New Hanover County Property Tax Search MCP Server
 
-A production-ready FastMCP server with **7 comprehensive tools** for searching and retrieving property tax records from the New Hanover County etax.nhcgov.com portal. Features intelligent caching, rate limiting, and robust error handling.
+A production-ready FastMCP server with **7 comprehensive tools** for searching and retrieving property tax records from the New Hanover County etax.nhcgov.com portal. Features intelligent caching, rate limiting, robust error handling, and **interactive Swagger API documentation**.
 
 ## 🚀 Quick Start
 
@@ -8,7 +8,7 @@ A production-ready FastMCP server with **7 comprehensive tools** for searching a
 
 1. **Clone and install dependencies:**
 ```bash
-git clone https://github.com/YOUR_USERNAME/nhc-property-tax-server.git
+git clone https://github.com/ChrisTansey007/nhc-property-tax-server.git
 cd nhc-property-tax-server
 pip install -r requirements.txt
 ```
@@ -19,12 +19,23 @@ cp .env.example .env
 # Edit .env with your settings
 ```
 
-3. **Run the server:**
+3. **Run the servers:**
+
 ```bash
+# Option 1: Run both servers with the helper script
+python run_servers.py
+
+# Option 2: Run servers separately
+# Terminal 1 - MCP Server:
 python nhc_property_tax_server.py
+
+# Terminal 2 - Documentation Server:
+python docs_server.py
 ```
 
-The server will start on `http://localhost:8000/mcp`
+- MCP Server: `http://localhost:8000/mcp`
+- API Documentation: `http://localhost:8001/docs`
+- ReDoc: `http://localhost:8001/redoc`
 
 ### Docker Deployment
 
@@ -49,6 +60,8 @@ docker-compose ps
 - **Comprehensive Error Handling**: Specific error types for debugging
 - **Docker Support**: Production-ready containerization
 - **Authentication**: Optional API key protection
+- **Interactive API Documentation**: Swagger UI and ReDoc interfaces
+- **OpenAPI 3.0 Specification**: Full API specification for client generation
 
 ## 🛠 Available Tools
 
@@ -226,6 +239,32 @@ pytest test_nhc_property_tax_server.py -v
 
 # Run with coverage
 pytest --cov=nhc_property_tax_server test_nhc_property_tax_server.py
+```
+
+## 📚 API Documentation
+
+The server includes interactive API documentation powered by Swagger UI and ReDoc:
+
+### Documentation Endpoints
+
+- **Swagger UI**: `http://localhost:8001/docs` - Interactive API explorer with try-it-out functionality
+- **ReDoc**: `http://localhost:8001/redoc` - Clean, responsive API reference
+- **OpenAPI Spec**: `http://localhost:8001/openapi.json` - Raw OpenAPI 3.0 specification
+
+### Using the Documentation
+
+1. Start both servers using `python run_servers.py`
+2. Open `http://localhost:8001` in your browser
+3. Choose your preferred documentation interface
+4. Explore endpoints, view schemas, and test API calls
+
+### Client Code Generation
+
+The OpenAPI specification can be used to generate client libraries in multiple languages:
+
+```bash
+# Example: Generate Python client
+openapi-generator-cli generate -i http://localhost:8001/openapi.json -g python -o ./client
 ```
 ## 🐛 Troubleshooting
 
