@@ -1,0 +1,30 @@
+# Core FastMCP framework
+fastmcp>=0.1.0
+
+# Web scraping
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# Data processing
+pandas>=2.0.0
+
+# Environment management
+python-dotenv>=1.0.0
+
+# Caching
+cachetools>=5.3.0
+
+# Additional dependencies for production
+# Optional: for enhanced logging
+# colorlog>=6.7.0
+
+# Optional: for monitoring
+# prometheus-client>=0.17.0
+
+# Development dependencies (optional)
+# pytest>=7.4.0
+# pytest-asyncio>=0.21.0
+# pytest-mock>=3.11.0
+# black>=23.7.0
+# flake8>=6.1.0
+# mypy>=1.5.0
